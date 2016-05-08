@@ -1,4 +1,4 @@
-define(['backbone','underscore'], function(Backbone, _) {
+define(['backbone','underscore','jquery'], function(Backbone, _, $) {
   var App = Backbone.View.extend({
     el: 'body',
     events: {
@@ -6,21 +6,17 @@ define(['backbone','underscore'], function(Backbone, _) {
       "click .text .btn": "changeSource"
     },
 
-    list: [
-      ["man", "hombre", "لجر"],
-      ["woman", "mujer", "ةأرما"],
-      ["boy", "niño", "دلو"], 
-      ["girl", "niña", "تنب"]
-    ],
-
     active: "arabic",
      
     itemTemplate: _.template($("script.template").html()),
     initialize: function() {
-      _.each(this.list, function(i) {
-        this.$(".list").append(this.itemTemplate({i:i}));
-      }, this);
-      this.$(".spanish").hide();
+      var that = this;
+      $.getJSON('resources/words.json', function(data){
+          _.each(data.words, function(i) {
+            this.$(".list").append(this.itemTemplate({i:i}));
+          }, that);
+          that.$(".spanish").hide();
+      });
     },
     changeSource: function() {
       if (this.active == "arabic") {

@@ -1,0 +1,11 @@
+/* Feel free to use @import. r.js will merge them, when building */
+@import "../scripts/vendor/bootstrap/dist/css/bootstrap.min.css";
+body {
+  font-size: 27px;
+}
+.text{
+  text-align: center;
+}
+.list .row {
+  margin-top: 20px;
+}

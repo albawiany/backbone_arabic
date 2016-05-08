@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+     <script data-main="scripts/main" src="scripts/vendor/requirejs/require.js"></script>
+     <div class="row">
+       <div class="col-xs-8 text">
+         <div class="btn btn-default spaBtn">
+           Español
+         </div>
+         <div class="btn btn-default btn-primary arabBtn">
+           Árabe
+         </div>
+       </div>
+       <div class="col-xs-4 text">
+       </div>
+     </div>
+     <div class="list">
+     </div>
+  </body>
+  <script type="text/template" class="template">
+     <div class="row">
+       <div class="col-xs-8 text">
+         <span class="arab"><%=i[2].split("").reverse().join("")%></span>
+         <span class="spanish"><%=i[1]%></span>
+       </div>
+       <div class="col-xs-4">
+         <span class="glyphicon glyphicon-play-circle play" data-audio="<%=i[0]%>"></span>
+       </div>
+     </div>
+  </script>
+</html>
